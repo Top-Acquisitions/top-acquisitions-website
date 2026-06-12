@@ -1,0 +1,25 @@
+<header class="site-header" data-site-header>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="nav-shell" aria-label="Main navigation">
+    <a class="brand" href="{{ "/" | relURL }}" aria-label="Top Acquisitions home">
+      <span class="brand-mark" aria-hidden="true">TA</span>
+      <span class="brand-text">
+        <span class="brand-name">Top Acquisitions</span>
+        <span class="brand-line">UK services acquisition platform</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="visually-hidden">Open menu</span>
+    </button>
+    <div class="nav-links" id="site-menu" data-nav-menu>
+      {{ $current := .RelPermalink }}
+      {{ range .Site.Menus.main }}
+        {{ $active := or (eq $current .URL) (and (ne .URL "/") (hasPrefix $current .URL)) }}
+        <a href="{{ .URL | relURL }}" class="{{ if $active }}is-active{{ end }}">{{ .Name }}</a>
+      {{ end }}
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,55 @@
+{{ define "main" }}
+<article class="page">
+  <header class="page-header">
+    <p class="eyebrow">{{ .Title }}</p>
+    <h1>{{ with .Params.headline }}{{ . }}{{ else }}{{ .Title }}{{ end }}</h1>
+    {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
+  </header>
+
+  {{ if .Params.sections }}
+    <div class="content-grid">
+      {{ range .Params.sections }}
+        <section class="content-card">
+          <h2>{{ .title }}</h2>
+          <p>{{ .body }}</p>
+        </section>
+      {{ end }}
+    </div>
+  {{ end }}
+
+  {{ if .Params.steps }}
+    <div class="step-list">
+      {{ range .Params.steps }}
+        <section class="step-item">
+          <h2>{{ .title }}</h2>
+          <p>{{ .body }}</p>
+        </section>
+      {{ end }}
+    </div>
+    {{ with .Params.note }}<p class="page-note">{{ . }}</p>{{ end }}
+  {{ end }}
+
+  {{ if .Params.contact_points }}
+    <section class="contact-panel">
+      <div>
+        <h2>What to include</h2>
+        <ul>
+          {{ range .Params.contact_points }}
+            <li>{{ . }}</li>
+          {{ end }}
+        </ul>
+      </div>
+      <div class="contact-card">
+        <span>Email</span>
+        <a href="mailto:{{ .Site.Params.contact_email }}">{{ .Site.Params.contact_email }}</a>
+      </div>
+    </section>
+  {{ end }}
+
+  {{ with .Params.cta }}
+    <div class="page-cta">
+      <a class="button button-primary" href="{{ .url }}">{{ .text }}</a>
+    </div>
+  {{ end }}
+</article>
+{{ end }}

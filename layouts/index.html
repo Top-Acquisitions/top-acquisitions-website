@@ -1,0 +1,75 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow">{{ .Params.hero.kicker }}</p>
+    <h1>{{ .Params.hero.title }}</h1>
+    <p class="hero-subtitle">{{ .Params.hero.subtitle }}</p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="{{ .Params.hero.primary_button.url }}">{{ .Params.hero.primary_button.text }}</a>
+      <a class="button button-secondary" href="{{ .Params.hero.secondary_button.url }}">{{ .Params.hero.secondary_button.text }}</a>
+    </div>
+  </div>
+  <figure class="hero-figure">
+    <img src="{{ .Params.hero.image | relURL }}" alt="A discreet business handover discussion in an established UK services company" width="1731" height="909" fetchpriority="high">
+  </figure>
+</section>
+
+<section class="section section-intro">
+  <div class="section-heading">
+    <p class="eyebrow">Positioning</p>
+    <h2>{{ .Params.intro.title }}</h2>
+  </div>
+  <div class="intro-panel">
+    <p>{{ .Params.intro.body }}</p>
+    <div class="owner-list">
+      {{ range .Params.owner_points }}
+        <p>{{ . }}</p>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-heading">
+    <p class="eyebrow">Acquisition criteria</p>
+    <h2>What makes a business a fit.</h2>
+  </div>
+  <div class="criteria-grid">
+    {{ range .Params.criteria }}
+      <article class="criteria-card">
+        <h3>{{ .title }}</h3>
+        <p>{{ .body }}</p>
+      </article>
+    {{ end }}
+  </div>
+</section>
+
+<section class="band">
+  <div class="band-copy">
+    <p class="eyebrow">Sectors</p>
+    <h2>{{ .Params.sectors.title }}</h2>
+    <p>{{ .Params.sectors.body }}</p>
+    <a href="{{ "/sectors/" | relURL }}">Read the sector focus</a>
+  </div>
+</section>
+
+<section class="section approach-preview">
+  <div class="section-heading">
+    <p class="eyebrow">Approach</p>
+    <h2>A careful handover process.</h2>
+  </div>
+  <ol class="timeline">
+    {{ range .Params.approach }}
+      <li>{{ . }}</li>
+    {{ end }}
+  </ol>
+</section>
+
+<section class="cta-strip">
+  <div>
+    <p class="eyebrow">Confidential enquiries</p>
+    <h2>Considering succession or a careful sale?</h2>
+  </div>
+  <a class="button button-primary" href="{{ "/contact/" | relURL }}">Contact Top Acquisitions</a>
+</section>
+{{ end }}

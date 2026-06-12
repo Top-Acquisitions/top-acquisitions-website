@@ -1,0 +1,59 @@
+baseURL = "https://top-acquisitions.com/"
+relativeURLs = true
+canonifyURLs = true
+languageCode = "en-gb"
+title = "Top Acquisitions"
+disableKinds = ["taxonomy", "term"]
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 10
+  [[menu.main]]
+    name = "For Business Owners"
+    url = "/for-business-owners/"
+    weight = 20
+  [[menu.main]]
+    name = "What We Look For"
+    url = "/what-we-look-for/"
+    weight = 30
+  [[menu.main]]
+    name = "Our Approach"
+    url = "/our-approach/"
+    weight = 40
+  [[menu.main]]
+    name = "Sectors"
+    url = "/sectors/"
+    weight = 50
+  [[menu.main]]
+    name = "Contact"
+    url = "/contact/"
+    weight = 60
+
+[params]
+  description = "Top Acquisitions buys and holds profitable, established UK services businesses for the long term."
+  contact_email = "hello@top-acquisitions.com"
+  contact_location = "United Kingdom"
+
+[minify]
+  minifyOutput = true
+
+[minify.tdewolff]
+  [minify.tdewolff.html]
+    keepConditionalComments = true
+    keepDefaultAttrVals = true
+    keepDocumentTags = true
+    keepEndTags = true
+    keepQuotes = true
+    keepWhitespace = false
+  [minify.tdewolff.css]
+    keepCSS2 = true
+    precision = 0
+  [minify.tdewolff.js]
+    keepVarNames = false
+    precision = 0
+  [minify.tdewolff.json]
+    precision = 0
+  [minify.tdewolff.xml]
+    keepWhitespace = false

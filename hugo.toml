@@ -38,7 +38,7 @@ disableKinds = ["taxonomy", "term"]
 [params]
   description = "Top Acquisitions buys and holds profitable, established UK services businesses for the long term."
   contact_email = "info@top-acquisitions.com"
-  contact_form_endpoint = "https://formsubmit.co/info@top-acquisitions.com"
+  contact_form_endpoint = "https://formsubmit.co/19d0e04757881e229de67ff8b6227230"
   contact_form_success_url = "https://top-acquisitions.com/thankyou/"
   contact_location = "United Kingdom"
 

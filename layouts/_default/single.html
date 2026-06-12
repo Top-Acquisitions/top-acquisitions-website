@@ -17,6 +17,21 @@
     </div>
   {{ end }}
 
+  {{ if .Params.comparison }}
+    <div class="comparison-table" role="table" aria-label="What Top Acquisitions is and is not">
+      <div class="comparison-row comparison-head" role="row">
+        <div role="columnheader">What we are</div>
+        <div role="columnheader">What we are not</div>
+      </div>
+      {{ range .Params.comparison }}
+        <div class="comparison-row" role="row">
+          <div role="cell">{{ .what }}</div>
+          <div role="cell">{{ .not }}</div>
+        </div>
+      {{ end }}
+    </div>
+  {{ end }}
+
   {{ if .Params.steps }}
     <div class="step-list">
       {{ range .Params.steps }}
@@ -27,6 +42,20 @@
       {{ end }}
     </div>
     {{ with .Params.note }}<p class="page-note">{{ . }}</p>{{ end }}
+  {{ end }}
+
+  {{ if .Params.questions }}
+    <section class="page-faq">
+      <h2>Owner questions</h2>
+      <div class="faq-list">
+        {{ range .Params.questions }}
+          <details>
+            <summary>{{ .question }}</summary>
+            <p>{{ .answer }}</p>
+          </details>
+        {{ end }}
+      </div>
+    </section>
   {{ end }}
 
   {{ if .Params.contact_points }}

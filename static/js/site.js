@@ -20,4 +20,16 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.remove("nav-open");
     });
   });
+
+  const contactForm = document.querySelector("[data-contact-form]");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", () => {
+      const button = contactForm.querySelector("button[type='submit']");
+      if (button) {
+        button.textContent = "Sending...";
+        button.setAttribute("aria-busy", "true");
+      }
+    });
+  }
 });

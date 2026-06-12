@@ -7,6 +7,10 @@
     <div class="footer-contact">
       <span>{{ .Site.Params.contact_location }}</span>
       <a href="mailto:{{ .Site.Params.contact_email }}">{{ .Site.Params.contact_email }}</a>
+      <nav class="footer-links" aria-label="Legal links">
+        <a href="{{ "/privacy-policy/" | relURL }}">Privacy Policy</a>
+        <a href="{{ "/terms-of-service/" | relURL }}">Terms of Service</a>
+      </nav>
     </div>
   </div>
 </footer>

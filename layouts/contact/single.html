@@ -1,0 +1,71 @@
+{{ define "main" }}
+<article class="page contact-page">
+  <header class="page-header">
+    <p class="eyebrow">{{ .Title }}</p>
+    <h1>{{ .Params.headline }}</h1>
+    <p>{{ .Params.summary }}</p>
+  </header>
+
+  <section class="contact-layout">
+    <div class="contact-guidance">
+      <h2>What to include</h2>
+      <ul>
+        {{ range .Params.contact_points }}
+          <li>{{ . }}</li>
+        {{ end }}
+      </ul>
+      <div class="contact-card">
+        <span>Direct email</span>
+        <a href="mailto:{{ .Site.Params.contact_email }}">{{ .Site.Params.contact_email }}</a>
+      </div>
+      {{ with .Params.form_note }}
+        <p class="form-note">{{ . }}</p>
+      {{ end }}
+    </div>
+
+    <div class="contact-form-card">
+      <h2>Send a confidential enquiry</h2>
+      <form action="{{ .Site.Params.contact_form_endpoint }}" method="POST" data-contact-form>
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="{{ .Site.Params.contact_form_success_url }}">
+        <input type="hidden" name="_subject" value="New Top Acquisitions website enquiry">
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="honeypot" aria-hidden="true">
+
+        <div class="form-row">
+          <label for="fullName">Name*</label>
+          <input id="fullName" name="Name" type="text" autocomplete="name" required>
+        </div>
+        <div class="form-row">
+          <label for="emailAddress">Email*</label>
+          <input id="emailAddress" name="Email" type="email" autocomplete="email" required>
+        </div>
+        <div class="form-row two-up">
+          <div>
+            <label for="phoneNumber">Phone</label>
+            <input id="phoneNumber" name="Phone" type="tel" autocomplete="tel">
+          </div>
+          <div>
+            <label for="companyName">Business / company</label>
+            <input id="companyName" name="Business" type="text" autocomplete="organization">
+          </div>
+        </div>
+        <div class="form-row two-up">
+          <div>
+            <label for="sector">Sector</label>
+            <input id="sector" name="Sector" type="text" placeholder="Cleaning, facilities, waste...">
+          </div>
+          <div>
+            <label for="location">Location</label>
+            <input id="location" name="Location" type="text" autocomplete="address-level2">
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="message">Message*</label>
+          <textarea id="message" name="Message" rows="6" required placeholder="Briefly describe the business, timing, and what kind of conversation would be useful."></textarea>
+        </div>
+        <button type="submit" class="button button-primary">Send message</button>
+      </form>
+    </div>
+  </section>
+</article>
+{{ end }}
